@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chat Anywhere | Online Users</title>
+
+    <style>
+
+      body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;margin: 0px;
+    /*line-height: 28px;*/
+    /*font-weight: 300;*/
+    color: #666666;
+    overflow-x: hidden !important;
+    -webkit-font-smoothing: antialiased;
+        background: #60b6ff;}
+      .link {
+        stroke: #88c8ff;
+        stroke-width: 1px;
+        }
+      .node {
+        cursor: pointer;
+        fill: none;
+        stroke-width: 1px;
+        stroke: gray;
+      }
+      .chat-message {
+        fill: black;
+        stroke-width: 1px;
+        stroke: none;
+        font-size: 12px;
+      }
+      .chat-message-background {
+        fill: white;
+        stroke-width: 1px;
+      }
+      .page-title {
+        position: absolute;
+        color: white;
+        padding: 15px;
+        cursor: pointer;
+        background: #00000099;
+        max-width: 300px;
+      }
+      .url-input {
+        width: 225px;
+        height: 20px;
+      }
+      .url-btn {
+        margin-left: 10px;
+        background: #0072ff;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+      }
+      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
+      h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+        header {
+            padding: 20px;
+            position: absolute;
+            background: #f8f8f8;
+            border: 1px solid black;
+            border-radius: 5px;
+            max-width: 250px;
+            color: white;
+            overflow: hidden;
+            display: none;
+            background: #000000c2;
+        }
+        header img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 100%;
+            border: 3px solid lightgray;
+        }
+
+      a:link { color: white; text-decoration: none;}
+      a:visited { color: white; }
+      a:hover { color: white; text-decoration: underline;}
+      a:active { color: white; }
+    </style>
+</head>
+<body>
+    <header>
+        <center><img>
+            <h2>Name</h2>
+        </center>
+      
+      <h3>And link to their web page!</h3>
+    </header>
+    <div class="page-title">Visible Online Users: <span class="user-count">0</span>
+        <p><small>Here you can see where users are, so that you can go to the same web page to chat with them!</small></p>
+        <p><small>If you don't want to share your location, you can turn off sharing in the extension popup window.</small></p>
+        <input class="url-input" type="text" placeholder="Enter url here..." /><span class="url-btn">Go</span>
+    </div>
+
+    <!-- container for force layout visualisation  -->
+    <center><section id="vis"></section></center>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
+
+<link rel="stylesheet" href="chatbox-only/content.css" />
+<script type="text/javascript" src="chatbox-only/content.js"></script>
+<script type="text/javascript" src="chatbox-only/danmu.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124158991-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124158991-3');
+</script>
+
+</body>
+</html>
