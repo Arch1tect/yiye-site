@@ -71,8 +71,9 @@
 								<li><a href="#section-services">更多信息</a></li>
 								<!-- <li><a href="#section-screenshots">Screenshots</a></li> -->
 								<!-- <li><a href="#section-pricing">Pricing</a></li> -->
-								<li><a target="_blank" href="build/index.html">网页版</a></li>
-								<li><a target="_blank" href="https://forum.urlchatbox.com">官方论坛</a></li>
+								<li><a target="_blank" href="chatbox.html">房间</a></li>
+
+								<li><a target="_blank" href="https://github.com/Same-Page">源代码</a></li>
 <!-- 								<li><a target="_blank" href="/online.html">Online users</a></li>
  -->								<!-- <li><a target="_blank" href="https://chrome.google.com/webstore/detail/chat-anywhere/bldcellajihanglphncgjmceklbibjkk">安装插件</a></li> -->
 							</ul>
@@ -100,8 +101,8 @@
 									<i class="fa fa-shopping-cart"></i>
 								</span>
 							</a>
-							<a href="https://forum.urlchatbox.com/topic/4/chrome%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD" target="_blank" class="fancy-button button-line button-white zoom">
-								官方论坛下载
+							<a onclick="toggleChatboxWeb()" class="fancy-button button-line button-white zoom">
+								<span id="toggleChatboxBtn">打开聊天盒</span>
 								<span class="icon">
 									<i class="fa fa-leaf"></i>
 								</span>
@@ -129,29 +130,79 @@
 					</div> -->
 					
 					<div class="col-md-10 step-details">
-							<h3 class="step-title color-scheme">功能简介</h3>
+							<h3 class="step-title color-scheme">同网站/网页聊天</h3>
 							<p class="step-description">
-								安装该扩展后，您可以在任意网页打开聊天窗口，可以选择和同网站或者同网页的其他用户聊天。聊天窗口可以调整大小，自由移动，同时也支持弹幕显示。
+								安装一叶浏览器扩展后，您可以在任意网页打开聊天盒，可以选择和同网站或者同网页的其他用户聊天。
+								
 							</p>
 
 							
 							<ul class="sub-steps"> <!-- Sub steps here -->
 								<li>
-									<p>除了实时聊天之外，您还可以在网页上留言，关注其他用户，发私信，甚至邀请其他网页的用户来您所在的网页。</p>
+									<p>聊天盒可以随意调整大小，左右移动，同时还有全屏弹幕功能。</p>
+									<p>除了在聊天室里聊天，您还可以关注或屏蔽其他用户，发私信，等等。</p>
 								</li>
 							</ul>
 					</div> <!-- End step-details -->
 				</div>
 				<!-- Step Description Ends -->
 				<div class="col-md-4 step-img">
-					<img src="images/profile-cn.png" alt="" /> <!-- Step Photo Here -->
+					<img src="images/basic_chat.png" alt="" /> 
 				</div>
 			</div>
 		</div>
-		<div class='big-image-wrapper'>
+		<!-- <div class='big-image-wrapper'>
 			<img class='full-width-image' src="images/full-page.png" />
-		</div>
+		</div> -->
 	<!--=== Step-2 section Ends ===-->
+
+
+
+
+	
+	<!--=== Step-2 section Starts ===-->
+	<section id="step-2" class="section-step step-even step-wrap">
+		<div class="container step animated" data-animation="bounceInRight" data-animation-delay="700">
+			<div class="row">
+				<!-- Step Description Starts -->
+				<div class="col-md-8 step-desc">
+					<!-- <div class="col-md-2 center">
+						<div class="step-no">
+							<span class="no-inner">2</span>
+						</div>
+					</div> -->
+					
+					<div class="col-md-10 step-details">
+							<h3 class="step-title color-scheme">创建房间</h3>
+							<p class="step-description">用户可以创建自己的房间，并进行个性化的设置，比如：</p>
+							
+							<ul class="sub-steps"> <!-- Sub steps here -->
+								<li>
+									<p>
+										设置房间的背景。
+									</p>
+								</li>
+								<li>
+									<p>
+										设置房间的多媒体播放列表。
+									</p>
+								</li>
+								
+							</ul>
+					</div><!-- End step-details -->
+				</div>
+				<!-- Step Description Ends -->
+				<div class="col-md-4 step-img">
+					<img src="images/media_room.png" alt="" /> <!-- Step Photo Here -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--=== Step-2 section Ends ===-->
+
+
+
+
 
 
 	<!--=== Video section Starts ===-->
@@ -184,9 +235,9 @@
 				<div class="col-md-6 col-sm-6 service animated" data-animation="fadeInLeft" data-animation-delay="700">
 					<span class="service-icon center"><i class="icon icon-basic-star fa-3x"></i></span>
 					<div class="service-desc">
-						<h4 class="service-title color-scheme">积分系统</h4>
+						<h4 class="service-title color-scheme">完全开源</h4>
 						<p class="service-description justify">
-							每天登录可以获取积分，积分可以用来邀请其他用户来到您所在的页面。
+							聊天盒相关代码完全开源，欢迎添砖加瓦，贡献代码。
 						</p>
 					</div>
 				</div>
@@ -198,7 +249,7 @@
 					<div class="service-desc">
 						<h4 class="service-title color-scheme">轻松设置</h4>
 						<p class="service-description justify">
-							除了可以随意缩放移动聊天窗口，您还可以设置是否显示弹幕，是否自动连线，在哪些网站自动连线，是否接收跳转邀请等等。
+							您可以设置是否显示弹幕，当前房间的用户头像，是否自动连接，在哪些网站自动连接等等。
 						</p>
 					</div>
 				</div>
@@ -210,7 +261,7 @@
 					<div class="service-desc">
 						<h4 class="service-title color-scheme">高速安全</h4>
 						<p class="service-description justify">
-							实时聊天使用低延迟的websocket技术，只有当前在同频道的用户可以看到聊天信息，其他人无法看到。
+							实时聊天使用低延迟的websocket技术，只有当前在同房间的用户可以看到聊天信息。
 						</p>
 					</div>
 				</div>
@@ -220,9 +271,9 @@
 				<div class="col-md-6 col-sm-6 service animated" data-animation="fadeInUp" data-animation-delay="700">
 					<span class="service-icon center"><i class="icon icon-basic-heart fa-3x"></i></span>
 					<div class="service-desc">
-						<h4 class="service-title color-scheme">论坛支持</h4>
+						<h4 class="service-title color-scheme">欢迎加入</h4>
 						<p class="service-description justify">
-							用户之间可以在论坛交流使用心得，同时开发团队也在论坛积极答疑解惑。
+							欢迎对该产品感兴趣的朋友以任何形式加入我们！
 						</p>
 					</div>
 				</div>
@@ -241,7 +292,7 @@
 		<div class="container footer center">
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="copyright">All rights reserved &copy; 2019</p>
+					<p class="copyright">All rights reserved &copy; 2020</p>
 				</div>
 			</div>
 		</div>
@@ -273,9 +324,9 @@
 <!--==== Custom Script files ====-->
 <script type="text/javascript" src="js/custom.js"></script>
 
-<!-- <link rel="stylesheet" href="chatbox-only/content.css" /> -->
-<!-- <script type="text/javascript" src="chatbox-only/content.js"></script> -->
-<!-- <script type="text/javascript" src="chatbox-only/danmu.js"></script> -->
+<link rel="stylesheet" href="build/content-static/css/main.css" />
+<script type="text/javascript" src="build/content-static/js/main.js"></script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124158991-3"></script>
 <script>
@@ -284,6 +335,15 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-124158991-3');
+  function toggleChatboxWeb() {
+	  if (window.isChatboxOpen()){
+		$('#toggleChatboxBtn').text('打开聊天盒')
+	  }else{
+		$('#toggleChatboxBtn').text('关闭聊天盒')
+
+	  }
+	  window.toggleChatbox()
+  }
 </script>
 
 </body>

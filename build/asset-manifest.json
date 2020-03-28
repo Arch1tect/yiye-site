@@ -1,0 +1,9 @@
+{
+  "main.css": "./content-static/css/main.css",
+  "main.js": "./content-static/js/main.js",
+  "main.js.map": "./content-static/js/main.js.map",
+  "content-static/css/main.css.map": "./content-static/css/main.css.map",
+  "index.html": "./index.html",
+  "precache-manifest.0ba1c9abe734d63a9e39f1effe3ea2fa.js": "./precache-manifest.0ba1c9abe734d63a9e39f1effe3ea2fa.js",
+  "service-worker.js": "./service-worker.js"
+}
