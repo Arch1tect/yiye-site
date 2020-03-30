@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react"
 import { List, Card, Avatar, Collapse } from "antd"
 import { Resizable } from "re-resizable"
+import axios from "axios"
 
 import Player from "./MusicPlayer"
+import spConfig from "./cfg"
 
 const { Panel } = Collapse
 const { Meta } = Card
 
-function Room() {
+function Room({ setReadyToLoadIframe }) {
 	const [room, setRoom] = useState()
 	const playerRef = useRef()
 	useEffect(() => {
@@ -22,26 +24,63 @@ function Room() {
 			// depending on where the change happened.
 			if (storageEvent.key === "room") {
 				const room = JSON.parse(storageEvent.newValue)
-				console.log(room)
+				console.log(room.id)
 				setRoom(room)
+				window.history.pushState(
+					"pagex",
+					document.title,
+					`?id=${room.id}`
+				)
 			}
 		})
+		const urlParams = new URLSearchParams(window.location.search)
+		const roomId = urlParams.get("id")
+		if (roomId) {
+			axios
+				.get(`${spConfig.apiUrl}/api/v1/room/${roomId}`)
+				.then(resp => {
+					const stringValue = JSON.stringify(resp.data)
+
+					localStorage.setItem("room", stringValue)
+
+					const storageEvent = document.createEvent("HTMLEvents")
+					storageEvent.initEvent("storage", true, true)
+					storageEvent.eventName = "storage"
+					storageEvent.key = "room"
+					storageEvent.newValue = stringValue
+					window.dispatchEvent(storageEvent)
+				})
+				.catch(() => {})
+				.then(() => {
+					setReadyToLoadIframe(true)
+				})
+		} else {
+			setReadyToLoadIframe(true)
+		}
 	}, [])
 
 	useEffect(() => {
 		if (!room) return
 		const bgImgUrl = `url("${room.background}")`
-		document.body.style.backgroundImage = bgImgUrl
+		// document.body.style.backgroundImage = bgImgUrl
 		if (room.media) {
 			playerRef.current.playlist(room.media)
 			playerRef.current.playlist.currentItem(0)
 			playerRef.current.playlist.autoadvance(0)
 		}
 	}, [room])
-	if (!room) return <span />
+	if (!room)
+		return (
+			<Card style={{ display: "inline-block", width: "100%" }}>
+				<Meta
+					title="未选择房间"
+					description="请在左侧的房间列表中选择想要进入的房间。"
+				/>
+			</Card>
+		)
 
 	return (
-		<div>
+		<div style={{ width: "100%" }}>
 			{room.media && (
 				<div>
 					<Resizable
@@ -53,9 +92,9 @@ function Room() {
 						// }}
 						enable={{
 							top: false,
-							right: true,
+							right: false,
 							bottom: true,
-							left: true,
+							left: false,
 							topRight: false,
 							bottomRight: false,
 							bottomLeft: false,
@@ -65,15 +104,14 @@ function Room() {
 							width: "100%",
 							height: 400
 						}}
-						minHeight={30}
 					>
 						<Player playerRef={playerRef} />
 					</Resizable>
 				</div>
 			)}
 			<Card
-			// style={{ width: 300 }}
-			// cover={<img src={room.cover} />}
+				style={{ display: "inline-block", width: "100%" }}
+				// cover={<img src={room.cover} />}
 			>
 				<Meta
 					avatar={<Avatar src={room.owner.avatarSrc} />}
